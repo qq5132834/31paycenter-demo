@@ -1,0 +1,22 @@
+server:
+  port: 1234
+
+springbootstart-sanytruck-paycenter:
+  access:
+    enable: true
+    access_url:
+    baseinfo_url:
+    secret_key_path:
+    channel_code:
+  commission:
+    commission_url:
+    search_commission_url:
+  consume:
+    consume_url:
+    refund_url:
+    search_consume_url:
+  account:
+    open_person_account_url:
+    query_person_account_url:
+    open_company_account_url:
+    query_company_account_url:
