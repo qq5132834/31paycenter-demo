@@ -16,8 +16,7 @@ springbootstart-sanytruck-paycenter:
     search_commission_url: "https://uat-pay.31truck.com/api/pay/v1/commission/search"
 #    search_commission_url: "https://pay.31truck.com/api/pay/v1/commission/search"  #生产
   consume:
-    consume_url:
-    refund_url:
+    consume_prepay_url: "https://uat-pay.31truck.com/api/pay/v1/consume/consumePrepay"
     search_consume_url:
   account:
     open_account_for_send_sms_url: "https://uat-pay.31truck.com/api/pay/v1/function/sendSMSForOpenAccount"
