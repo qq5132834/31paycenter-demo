@@ -7,16 +7,20 @@ springbootstart-sanytruck-paycenter:
     channel_code: PAY1010
     secret_key_path: D:/development/gitlab/demo/src/main/resources/nopaycenterkey/PAY1010
     access_url: "https://uat-pay.31truck.com/api/pay/v1/publicFunction/ticket"
+#    access_url: https://pay.31truck.com/api/pay/v1/publicFunction/ticket  #生产
     baseinfo_url: "https://uat-pay.31truck.com/api/pay/v1/publicFunction/baseinfo"
+#    baseinfo_url: "https://pay.31truck.com/api/pay/v1/publicFunction/baseinfo" #生产
   commission:
     commission_url: "https://uat-pay.31truck.com/api/pay/v1/commission/submit"
+#    commission_url: "https://pay.31truck.com/api/pay/v1/commission/submit" #生产
     search_commission_url: "https://uat-pay.31truck.com/api/pay/v1/commission/search"
+#    search_commission_url: "https://pay.31truck.com/api/pay/v1/commission/search"  #生产
   consume:
     consume_url:
     refund_url:
     search_consume_url:
   account:
-    open_person_account_url:
+    open_person_account_url: "https://uat-pay.31truck.com/api/pay/v1/person/openEasyPersonAccount"
     query_person_account_url:
     open_company_account_url:
     query_company_account_url:
