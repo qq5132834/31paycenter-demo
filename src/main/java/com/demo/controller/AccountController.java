@@ -1,6 +1,6 @@
 package com.demo.controller;
 
-import com.sany.truck.pub.pay.access.AccessRequest;
+import com.sany.truck.pub.pay.account.OpenAccountSendMsgRequest;
 import com.sany.truck.pub.pay.account.OpenAccountService;
 import com.sany.truck.pub.pay.account.OpenPersonAccountRequest;
 import io.swagger.annotations.Api;
@@ -19,7 +19,7 @@ public class AccountController {
     @Autowired
     private OpenAccountService openAccountService;
 
-    @ApiOperation("简易开户")
+    @ApiOperation("个人简易开户")
     @ResponseBody
     @GetMapping("/openPersonAccount")
     public Object openPersonAccount() throws Exception {
@@ -30,6 +30,14 @@ public class AccountController {
         String smsCode = "123456"; //短信
         OpenPersonAccountRequest request = new OpenPersonAccountRequest(certNo, customerName, teleNo, smsCode);
         return this.openAccountService.openPersonAccount(request);
+    }
+
+    @ApiOperation("简易开户发送验证码")
+    @ResponseBody
+    @GetMapping("/sendSMSForOpenAccount")
+    public String sendSMSForOpenAccount() throws Exception {
+        OpenAccountSendMsgRequest request = new OpenAccountSendMsgRequest("17512029876");
+        return this.openAccountService.sendSMSForOpenAccount(request);
     }
 
 }

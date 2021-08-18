@@ -27,7 +27,7 @@ public class SwaggerConfig{
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("反向寻车")//文档说明
+                .title("文档说明")//文档说明
                 .version("1.0.0")//文档版本说明
                 .build();
     }
