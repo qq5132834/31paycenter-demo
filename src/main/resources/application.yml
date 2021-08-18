@@ -22,6 +22,4 @@ springbootstart-sanytruck-paycenter:
   account:
     open_account_for_send_sms_url: "https://uat-pay.31truck.com/api/pay/v1/function/sendSMSForOpenAccount"
     open_person_account_url: "https://uat-pay.31truck.com/api/pay/v1/person/openEasyPersonAccount"
-    query_person_account_url:
-    open_company_account_url:
-    query_company_account_url:
+    query_person_account_url: "https://uat-pay.31truck.com/api/pay/v1/person/queryPersonAccount"

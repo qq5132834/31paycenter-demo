@@ -3,6 +3,7 @@ package com.demo.controller;
 import com.sany.truck.pub.pay.account.OpenAccountSendMsgRequest;
 import com.sany.truck.pub.pay.account.OpenAccountService;
 import com.sany.truck.pub.pay.account.OpenPersonAccountRequest;
+import com.sany.truck.pub.pay.account.QueryPersonAccountRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,14 @@ public class AccountController {
     @Autowired
     private OpenAccountService openAccountService;
 
+    @ApiOperation("简易开户发送验证码")
+    @ResponseBody
+    @GetMapping("/sendSMSForOpenAccount")
+    public String sendSMSForOpenAccount() throws Exception {
+        OpenAccountSendMsgRequest request = new OpenAccountSendMsgRequest("17512029876");
+        return this.openAccountService.sendSMSForOpenAccount(request);
+    }
+
     @ApiOperation("个人简易开户")
     @ResponseBody
     @GetMapping("/openPersonAccount")
@@ -32,12 +41,13 @@ public class AccountController {
         return this.openAccountService.openPersonAccount(request);
     }
 
-    @ApiOperation("简易开户发送验证码")
+    @ApiOperation("查询个人账户信息")
     @ResponseBody
-    @GetMapping("/sendSMSForOpenAccount")
-    public String sendSMSForOpenAccount() throws Exception {
-        OpenAccountSendMsgRequest request = new OpenAccountSendMsgRequest("17512029876");
-        return this.openAccountService.sendSMSForOpenAccount(request);
+    @GetMapping("/queryPersonAccount")
+    public Object queryPersonAccount() throws Exception {
+        QueryPersonAccountRequest request = new QueryPersonAccountRequest();
+        request.setCertNo("430621187809098765");
+        return this.openAccountService.queryPersonAccount(request);
     }
 
 }
