@@ -22,8 +22,8 @@ public class ConsumeController {
 
     @ApiOperation("预支付")
     @ResponseBody
-    @GetMapping("/consume")
-    public String consume() throws Exception {
+    @GetMapping("/prepay")
+    public String prepay() throws Exception {
         PayCenterConsumeRequest request = new PayCenterConsumeRequest();
         request.setMerchantCode("A001");
         request.setAmount(100l);
@@ -32,5 +32,7 @@ public class ConsumeController {
         request.setTimestamp(System.currentTimeMillis());
         return this.payCenterConsumeService.consumePrepay(request);
     }
+
+
 
 }
