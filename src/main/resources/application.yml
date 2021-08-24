@@ -20,7 +20,7 @@ springbootstart-sanytruck-paycenter:
     consume_topay_url: "https://uat-pay.31truck.com/api/pay/v1/consume/toPay"
     authorization_account_url: "https://uat-pay.31truck.com/api/pay/v1/nosecret/authorizationForAccountNo"
     authorization_material_url: "https://uat-pay.31truck.com/api/pay/v1/nosecret/authorizationForMaterial"
-
+    no_secret_pay_url: "https://uat-pay.31truck.com/api/pay/v1/nosecret/topay"
   account:
     open_account_for_send_sms_url: "https://uat-pay.31truck.com/api/pay/v1/function/sendSMSForOpenAccount"
     open_person_account_url: "https://uat-pay.31truck.com/api/pay/v1/person/openEasyPersonAccount"

@@ -33,8 +33,8 @@ public class AccountController {
     @GetMapping("/openPersonAccount")
     public Object openPersonAccount() throws Exception {
 
-        String certNo = "430621187809098765"; //身份证
-        String customerName = "萧十一郎"; //身份证
+        String certNo = "430621199001012121"; //身份证
+        String customerName = "黄小聊"; //身份证
         String teleNo = "13211223345"; //电话号码
         String smsCode = "123456"; //短信
         OpenPersonAccountRequest request = new OpenPersonAccountRequest(certNo, customerName, teleNo, smsCode);
