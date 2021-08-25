@@ -52,8 +52,8 @@ public class ConsumeController {
         PayCenterConsumePrePayRequest request = new PayCenterConsumePrePayRequest();
         request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
         request.setAmount(100l);
-        request.setConsumeOrderId("ORDERID112358");
-        request.setConsumeOrderName("订单名称");
+        request.setConsumeOrderId("ORDERID-" + System.currentTimeMillis());
+        request.setConsumeOrderName("电动化换电");
         request.setTimestamp(System.currentTimeMillis());
         request.setCustomerAccontNo("1007001002004");
         return this.payCenterConsumeService.consumePrepay(request);
@@ -69,13 +69,20 @@ public class ConsumeController {
         return this.payCenterConsumeService.consumeNoSecretToPay(noSecretToPayRequest);
     }
 
-//    @ApiOperation("结算宝支付")
-//    @ResponseBody
-//    @PostMapping("/topay")
-//    public String topay(@RequestBody PayCenterConsumeToPayRequest request) throws Exception {
-//        request.setPayMethod(2); //1密码支付，2免密支付
-//        request.setPayAccountNo("123456"); //支付账户
-//        return this.payCenterConsumeService.consumeTopay(request);
-//    }
+    @ApiOperation("查询支付状态")
+    @ResponseBody
+    @PostMapping("/searchConsumePay")
+    public String searchConsumePay(SearchConsumePayRequest request) throws Exception {
+        request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
+        return this.payCenterConsumeService.searchConsumePay(request);
+    }
+
+    @ApiOperation("查询退款状态")
+    @ResponseBody
+    @PostMapping("/searchConsumeRefund")
+    public String searchConsumeRefund(SearchConsumeRefundRequest request) throws Exception {
+        request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
+        return this.payCenterConsumeService.searchConsumeRefund(request);
+    }
 
 }
