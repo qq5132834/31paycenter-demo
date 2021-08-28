@@ -36,11 +36,11 @@ public class ConsumeController {
     public String authorizationMaterial() throws Exception {
 
         AuthorizationForMaterialRequest request = new AuthorizationForMaterialRequest();
-        request.setMerchantCode("A0001"); //商家代码
-        request.setAuthorizationAccountNo("1007001002004"); //授权账户
-        request.setMaterialCode("湘AUR909"); //物料代码
-        request.setMaterialDesc("张三车队"); //物料描述
-        request.setMonthMaxAmount(50000l); //被授权每月最大金额【单位分】
+        request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518"); //商家代码
+        request.setAuthorizationAccountNo("0070018700003760004"); //授权账户
+        request.setMaterialCode("湘A0001"); //物料代码
+        request.setMaterialDesc("姚芳芳的小摩托"); //物料描述
+        request.setMonthMaxAmount(500000l); //被授权每月最大金额【单位分】
         request.setSmsCode("123456"); //验证码
         return this.payCenterConsumeService.authorizatonMaterial(request);
     }
@@ -53,7 +53,7 @@ public class ConsumeController {
         request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
         request.setAmount(100l);
         request.setConsumeOrderId("ORDERID-" + System.currentTimeMillis());
-        request.setConsumeOrderName("电动化换电");
+        request.setConsumeOrderName("姚芳芳的小摩托充电交费");
         request.setTimestamp(System.currentTimeMillis());
         request.setCustomerAccontNo("1007001002004");
         return this.payCenterConsumeService.consumePrepay(request);
@@ -63,10 +63,23 @@ public class ConsumeController {
     @ResponseBody
     @PostMapping("/noSecretToPay")
     public String noSecretToPay(@RequestBody NoSecretToPayRequest noSecretToPayRequest) throws Exception {
-        noSecretToPayRequest.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
-        noSecretToPayRequest.setPayProtocol("1629684804400");
-        noSecretToPayRequest.setPaySecret("57712d2f4e824021909e9dbc9eef8ccd");
-        return this.payCenterConsumeService.consumeNoSecretToPay(noSecretToPayRequest);
+        noSecretToPayRequest.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518"); //行必达商家号代码
+        noSecretToPayRequest.setPayProtocol("1630056383448");
+        noSecretToPayRequest.setPaySecret("8f9f1b31d7344caf8e42f9530842794b");
+        return this.payCenterConsumeService.consumeProxyToPay(noSecretToPayRequest);
+    }
+
+    @ApiOperation("退款")
+    @ResponseBody
+    @PostMapping("/refund")
+    public String refund(String oldPayOrderId, Long amount) throws Exception {
+        PayCenterRefundRequest request = new PayCenterRefundRequest();
+        request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
+        request.setRefundOrderId("REFUND-" + System.currentTimeMillis());
+        request.setRemark("退款");
+        request.setOldPayOrderId(oldPayOrderId);
+        request.setAmount(amount);
+        return this.payCenterConsumeService.consumeRefund(request);
     }
 
     @ApiOperation("查询支付状态")

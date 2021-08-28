@@ -22,7 +22,8 @@ springbootstart-sanytruck-paycenter:
     search_consume_refund_url: "https://uat-pay.31truck.com/api/pay/v1/consume/searchRefund"
     authorization_account_url: "https://uat-pay.31truck.com/api/pay/v1/proxy/authorizationForAccountNo"
     authorization_material_url: "https://uat-pay.31truck.com/api/pay/v1/proxy/authorizationForMaterial"
-    no_secret_pay_url: "https://uat-pay.31truck.com/api/pay/v1/proxy/topay"
+    proxy_pay_url: "https://uat-pay.31truck.com/api/pay/v1/proxy/topay"
+    consume_refund_url: "https://uat-pay.31truck.com/api/pay/v1/consume/toRefund"
   account:
     open_account_for_send_sms_url: "https://uat-pay.31truck.com/api/pay/v1/function/sendSMSForOpenAccount"
     open_person_account_url: "https://uat-pay.31truck.com/api/pay/v1/person/openEasyPersonAccount"
