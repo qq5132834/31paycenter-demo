@@ -47,10 +47,9 @@
 <!--            <version>1.1.0</version>-->
 <!--        </dependency>-->
         <dependency>
-            <groupId>sany.pub.pay</groupId>
+            <groupId>com.sany.truck</groupId>
             <artifactId>sany-pub-pay-openapi-starter</artifactId>
             <version>1.1.0</version>
-            <scope>compile</scope>
         </dependency>
 
     </dependencies>

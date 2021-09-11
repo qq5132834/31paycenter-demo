@@ -30,11 +30,10 @@ public class ConsumeController {
         return this.payCenterConsumeService.authorizatonAccount(request);
     }
 
-    @ApiOperation("物料免密支付")
+    @ApiOperation("物料授权代理支付")
     @ResponseBody
     @GetMapping("/authorizatonMaterial")
     public String authorizationMaterial() throws Exception {
-
         AuthorizationForMaterialRequest request = new AuthorizationForMaterialRequest();
         request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518"); //商家代码
         request.setAuthorizationAccountNo("0070018700003760004"); //授权账户
@@ -55,7 +54,7 @@ public class ConsumeController {
         request.setConsumeOrderId("ORDERID-" + System.currentTimeMillis());
         request.setConsumeOrderName("姚芳芳的小摩托充电交费");
         request.setTimestamp(System.currentTimeMillis());
-        request.setCustomerAccontNo("1007001002004");
+//        request.setCustomerAccontNo("1007001002004");
         return this.payCenterConsumeService.consumePrepay(request);
     }
 
@@ -75,7 +74,7 @@ public class ConsumeController {
     public String refund(String oldPayOrderId, Long amount) throws Exception {
         PayCenterRefundRequest request = new PayCenterRefundRequest();
         request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
-        request.setRefundOrderId("REFUND-" + System.currentTimeMillis());
+        request.setConsumeOrderId("REFUND-" + System.currentTimeMillis());
         request.setRemark("退款");
         request.setOldPayOrderId(oldPayOrderId);
         request.setAmount(amount);
