@@ -24,7 +24,7 @@ public class AccountController {
     @ResponseBody
     @GetMapping("/sendSMSForOpenAccount")
     public String sendSMSForOpenAccount() throws Exception {
-        OpenAccountSendMsgRequest request = new OpenAccountSendMsgRequest("17512029876");
+        OpenAccountSendMsgRequest request = new OpenAccountSendMsgRequest("17512029876", "S1");
         return this.openAccountService.sendSMSForOpenAccount(request);
     }
 

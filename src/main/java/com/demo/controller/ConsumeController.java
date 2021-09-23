@@ -50,7 +50,7 @@ public class ConsumeController {
     public String prepay() throws Exception {
         PayCenterConsumePrePayRequest request = new PayCenterConsumePrePayRequest();
         request.setMerchantCode("085c5cbc8c2744078ced7365ce5cc518");
-        request.setAmount(100l);
+        request.setAmount(3400l);
         request.setConsumeOrderId("ORDERID-" + System.currentTimeMillis());
         request.setConsumeOrderName("姚芳芳的小摩托充电交费");
         request.setTimestamp(System.currentTimeMillis());
