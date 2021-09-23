@@ -19,6 +19,8 @@ public class DendrogramTree {
     private final static Integer marginX = 150; //列间距
     private final static Integer fontSize = 28;
 
+    private static int num = 1;
+
     /**
      * 生成树图写到磁盘
      * @param picType 图片类型JPG GIF JPEG PNG
@@ -31,7 +33,7 @@ public class DendrogramTree {
 
 
         Integer treeDeep = 1; //树深
-        calTreeNode(list, treeDeep, 1);
+        calTreeNode(list, treeDeep);
         System.out.println(JSON.toJSONString(list));
 
         List<TreeNode> leafNodeList = new ArrayList<TreeNode>();
@@ -53,13 +55,13 @@ public class DendrogramTree {
 
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= leafNodeList.size(); i++) {
-            TreeNode leafNode = leafNodeList.get(i-1);
-            int y = leafNode.getDeep() * marginY;
+            int y = leafNodeList.get(i-1).getDeep() * marginY;
             int x = sb.toString().length() * fontSize + marginX * i;
-            leafNode.setX(x);
-            leafNode.setY(y);
-            sb.append(leafNode.getName());
+            leafNodeList.get(i-1).setX(x);
+            leafNodeList.get(i-1).setY(y);
+            sb.append(leafNodeList.get(i-1).getName());
         }
+        System.out.println("叶子位置：" + JSON.toJSONString(leafNodeList));
         System.out.println("语法：" + sb.toString());
         int rectX = sb.toString().length() * fontSize + marginX * ( leafNodeList.size() + 2);
         int rectY = marginY * ( treeDeep + 2 );
@@ -237,7 +239,7 @@ public class DendrogramTree {
         }
     }
 
-    private static void calTreeNode (List<TreeNode> tree, Integer treeDeep, int num){
+    private static void calTreeNode (List<TreeNode> tree, Integer treeDeep){
         if(tree != null && tree.size() > 0){
             int deep = treeDeep;
             for (TreeNode treeNode : tree) {
@@ -248,7 +250,7 @@ public class DendrogramTree {
             for (TreeNode treeNode : tree) {
                 if(treeNode.getChildren() != null && treeNode.getChildren().size() > 0){
                     treeDeep++;
-                    calTreeNode(treeNode.getChildren(), treeDeep, num);
+                    calTreeNode(treeNode.getChildren(), treeDeep);
                 }
             }
         }

@@ -21,15 +21,25 @@ public class DendrogramTreeDemo {
         cChildren.add(new DendrogramTree.TreeNode("-"));
         cChildren.add(new DendrogramTree.TreeNode("a2"));
         c.setChildren(cChildren);
-
         aChildren.add(c);
+
         aChildren.add(new DendrogramTree.TreeNode(")"));
         a.setChildren(aChildren);
 
         List<DendrogramTree.TreeNode> dtoChildren = new ArrayList<DendrogramTree.TreeNode>();
         dtoChildren.add(a);
         dtoChildren.add(new DendrogramTree.TreeNode("*"));
-        dtoChildren.add(new DendrogramTree.TreeNode("b"));
+
+        DendrogramTree.TreeNode d = new DendrogramTree.TreeNode("[c1 + d2]");
+        List<DendrogramTree.TreeNode> dChildren = new ArrayList<DendrogramTree.TreeNode>();
+        dChildren.add(new DendrogramTree.TreeNode("["));
+        dChildren.add(new DendrogramTree.TreeNode("c1"));
+        dChildren.add(new DendrogramTree.TreeNode("+"));
+        dChildren.add(new DendrogramTree.TreeNode("d2"));
+        dChildren.add(new DendrogramTree.TreeNode("]"));
+        d.setChildren(dChildren);
+        dtoChildren.add(d);
+
         dto.setChildren(dtoChildren);
         list.add(dto);
         DendrogramTree.writeImage("JPG", new File("C:/Users/51328/Desktop/本书源代码/tree.jpg"), list);
