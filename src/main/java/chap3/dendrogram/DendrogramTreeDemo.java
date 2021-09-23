@@ -33,9 +33,15 @@ public class DendrogramTreeDemo {
         DendrogramTree.TreeNode d = new DendrogramTree.TreeNode("[c1 + d2]");
         List<DendrogramTree.TreeNode> dChildren = new ArrayList<DendrogramTree.TreeNode>();
         dChildren.add(new DendrogramTree.TreeNode("["));
-        dChildren.add(new DendrogramTree.TreeNode("c1"));
-        dChildren.add(new DendrogramTree.TreeNode("+"));
-        dChildren.add(new DendrogramTree.TreeNode("d2"));
+
+        DendrogramTree.TreeNode e = new DendrogramTree.TreeNode("number1 + number2");
+        List<DendrogramTree.TreeNode> eChildren = new ArrayList<DendrogramTree.TreeNode>();
+        eChildren.add(new DendrogramTree.TreeNode("number1"));
+        eChildren.add(new DendrogramTree.TreeNode("+"));
+        eChildren.add(new DendrogramTree.TreeNode("number2"));
+        e.setChildren(eChildren);
+        dChildren.add(e);
+
         dChildren.add(new DendrogramTree.TreeNode("]"));
         d.setChildren(dChildren);
         dtoChildren.add(d);

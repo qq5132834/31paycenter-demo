@@ -17,7 +17,7 @@ public class DendrogramTree {
 
     private final static Integer marginY = 100; //行间距
     private final static Integer marginX = 150; //列间距
-    private final static Integer fontSize = 28;
+    private final static Integer fontSize = 40;
 
     private static int num = 1;
 
@@ -29,8 +29,6 @@ public class DendrogramTree {
      * @return
      */
     public static boolean writeImage(String picType, File file, List<TreeNode> list ) {
-
-
 
         Integer treeDeep = 1; //树深
         calTreeNode(list, treeDeep);
@@ -115,25 +113,7 @@ public class DendrogramTree {
         //画图
         drawString(g, list);
 
-
-//        return true;
-
-
-//        int heightL2 = (imgHeight - fontSize) / list.size();
-//        for (int i = 0; i < list.size(); i++) {
-//            DendrogramDto dendrogramDto = list.get(i);
-//            int height = heightL2 / 2;
-//            String name = dendrogramDto.getName();
-//            g.drawString(name, parentX + margin, height + heightL2 * i);
-//            // TODO 这里可以写其他属性， y随属性个数增加而增加 fontSize * i
-//            g.drawString("注册资本：" + (dendrogramDto.getRegCapital() == null?"-": dendrogramDto.getRegCapital()), parentX + margin, height + heightL2 * i + fontSize);
-//            g.drawLine(parentX, parentY, parentX + margin, height + heightL2 * i);
-//            if (dendrogramDto.getChildren() != null && !dendrogramDto.getChildren().isEmpty()) {
-//                int myX = computeParentX(dendrogramDto.getName(), parentX + margin, fontSize);
-//                drawChildrenTransverse(g, dendrogramDto.getChildren(), height + heightL2 * i, heightL2, heightL2 * i, fontSize, margin, myX);
-//            }
-//        }
-//        // 释放画笔
+        // 释放画笔
         g.dispose();
         // 将画好的图片通过流形式写到硬盘上
         boolean val = false;
@@ -151,7 +131,8 @@ public class DendrogramTree {
                 String name = treeNode.getName();
                 int x = treeNode.getX();
                 int y = treeNode.getY();
-                g.drawString(name, x, y);
+                int strX = x - treeNode.getName().length() * fontSize / 4; //字符左移，使字符串输出居中
+                g.drawString(name, strX, y);
                 if(treeNode.getChildren() != null && treeNode.getChildren().size() > 0){
                     for (TreeNode child : treeNode.getChildren()) {
                         g.drawLine(x, y, child.getX(), child.getY());
@@ -161,36 +142,6 @@ public class DendrogramTree {
             }
         }
     }
-
-//    /**
-//     * 循环子树
-//     * @param g Graphics2D
-//     * @param children 子节点
-//     * @param parentY 父节点的Y坐标
-//     * @param parentHeight 父区域的高度
-//     * @param startY 父区域起始Y坐标
-//     * @param fontSize 字体大小
-//     * @param margin 兄弟节点的间距
-//     * @param parentX 父节点的X坐标
-//     */
-//    private static void drawChildrenTransverse(Graphics2D g, List<DendrogramDto> children, int parentY, int parentHeight, int startY, int fontSize, int margin, int parentX) {
-//        int heightLn = parentHeight / children.size();
-//        for (int i = 0; i < children.size(); i++) {
-//            DendrogramDto dendrogramDto = children.get(i);
-//            int y = heightLn / 2 + heightLn * i + startY;
-//            int x = parentX + margin;
-//            String name = dendrogramDto.getName();
-//            g.drawString(name, x , y);
-//            g.drawLine(parentX, parentY, x, y);
-//            if (dendrogramDto.getChildren() != null && !dendrogramDto.getChildren().isEmpty()) {
-//                int myX = computeParentX(dendrogramDto.getName(), x, fontSize);
-//                int myStartY = heightLn * i + startY;
-//                drawChildrenTransverse(g, dendrogramDto.getChildren(),y, heightLn, myStartY, fontSize, margin, myX);
-//            }
-//        }
-//    }
-
-
 
     //写入父节点坐标
     private static void calParentNodePosition(TreeNode treeNode){
