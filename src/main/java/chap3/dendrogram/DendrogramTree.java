@@ -241,16 +241,15 @@ public class DendrogramTree {
 
     private static void calTreeNode (List<TreeNode> tree, Integer treeDeep){
         if(tree != null && tree.size() > 0){
-            int deep = treeDeep;
             for (TreeNode treeNode : tree) {
-                treeNode.setDeep(deep);
+                treeNode.setDeep(treeDeep);
                 treeNode.setCode(String.valueOf(num++));
             }
 
             for (TreeNode treeNode : tree) {
                 if(treeNode.getChildren() != null && treeNode.getChildren().size() > 0){
-                    treeDeep++;
-                    calTreeNode(treeNode.getChildren(), treeDeep);
+                    int dp = treeNode.getDeep() + 1;
+                    calTreeNode(treeNode.getChildren(), dp);
                 }
             }
         }
