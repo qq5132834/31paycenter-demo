@@ -14,7 +14,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration //声明该类为配置类
 @EnableSwagger2 //声明启动Swagger2
-
 public class SwaggerConfig{
     @Bean
     public Docket customDocket() {

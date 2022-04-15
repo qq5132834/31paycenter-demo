@@ -53,17 +53,33 @@
             <version>1.5.3</version>
         </dependency>
 
-        <!-- 引入支付中心openapi接口 -->
-<!--        <dependency>-->
-<!--            <groupId>sany.pub.pay</groupId>-->
-<!--            <artifactId>sany-pub-pay-openapi-starter</artifactId>-->
-<!--            <version>1.1.0</version>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>com.sany.truck</groupId>
-            <artifactId>sany-pub-pay-openapi-starter</artifactId>
-            <version>1.1.12</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.mitre.dsmiley.httpproxy</groupId>
+            <artifactId>smiley-http-proxy-servlet</artifactId>
+            <version>1.11</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.39</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.60</version>
+        </dependency>
+
+
 
     </dependencies>
 
